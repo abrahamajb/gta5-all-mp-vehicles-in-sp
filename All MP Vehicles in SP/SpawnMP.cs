@@ -177,7 +177,7 @@ public class SpawnMP : Script
 
     private int debug_releport = arena;
 
-private List<string> models_arena = new List<string>() {
+    private List<string> models_arena = new List<string>() {
     "boxville5",
     "zr380",
     "cerberus",
@@ -1065,7 +1065,7 @@ private List<string> models_arena = new List<string>() {
                 GTA.UI.Notification.Show("Error in loading the vehicle Add-On. Check if the entries in NewVehiclesList.txt are correct and try again.");
             }
         }
-        
+
         foreach (string hash in blacklist_str)
         {
             if (models_arena.Contains(hash))
@@ -1180,7 +1180,7 @@ private List<string> models_arena = new List<string>() {
                 models_weaponboats.Remove(hash);
         }
 
-       
+
 
         Tick += OnTick;
         KeyUp += onkeyup;
@@ -1197,7 +1197,7 @@ private List<string> models_arena = new List<string>() {
 
     void AddCustomVehicle(string Model, string Class)
     {
-        switch(Class)
+        switch (Class)
         {
             case "boats":
                 models_boats.Add(Model);
@@ -1792,9 +1792,9 @@ private List<string> models_arena = new List<string>() {
 
     public void SetSpawnLocation(Vehicle car, int min, int max)
     {
-        car.PlaceOnGround(); 
+        car.PlaceOnGround();
         float AroundDistance = (float)GetRandomNumber(min, max);
-        car.Position = World.GetNextPositionOnStreet(Game.Player.Character.Position.Around(AroundDistance)); 
+        car.Position = World.GetNextPositionOnStreet(Game.Player.Character.Position.Around(AroundDistance));
 
         while (car.IsOnScreen)
         {
@@ -2021,7 +2021,7 @@ private List<string> models_arena = new List<string>() {
                     }
 
                     //spawn in traffic
-                    if (street_flag == 1 && (Game.GameTime > cooldown + 10000 || cooldown == 0) && IsIndexCanSpawned(index_db)) 
+                    if (street_flag == 1 && (Game.GameTime > cooldown + 10000 || cooldown == 0) && IsIndexCanSpawned(index_db))
                     {
                         if (traffic_marker != null && traffic_marker.Exists())
                         {
@@ -2042,8 +2042,6 @@ private List<string> models_arena = new List<string>() {
                         street_driver.Task.CruiseWithVehicle(street_veh[index_db], 10.0f, DrivingStyle.Normal);
 
                         street_veh[index_db].Speed = 10.0f;
-
-                        //Function.Call(Hash.TASK_VEHICLE_DRIVE_WANDER, street_driver, street_veh[index_db], 10.0f, DrivingStyle.Normal);
 
                         street_driver.IsVisible = true;
 
